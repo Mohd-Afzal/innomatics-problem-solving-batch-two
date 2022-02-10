@@ -29,8 +29,6 @@ public class Fundamentals {
 //        System.out.println(si);
 
 
-
-//
 //        System.out.print("Print Num One: ");
 //        int num1 = s.nextInt();
 //
@@ -71,27 +69,74 @@ public class Fundamentals {
 
         // s.nextLine(), s.next().charAt(0), s.next().charAt(0)
 
-        int a =  s.nextInt();  // 50;
-        short n = s.nextShort(); // 10;
-        byte p =  s.nextByte(); // 20;
-        long q = s.nextLong();  // 45;
+//        int a =  s.nextInt();  // 50;
+//        short n = s.nextShort(); // 10;
+//        byte p =  s.nextByte(); // 20;
+//        long q = s.nextLong();  // 45;
 
 //        double d = 56;
 //        float x = 45.67;
 
-        double d = s.nextDouble();
-        System.out.println(a + " " + n + " " + p + " " + q + " " + d);
-
-        boolean b = s.nextBoolean();
-        System.out.println(b);
-
-        String str =  s.next();// s.nextLine() // "abc12;7[]";
-        System.out.println(str);
+//        double d = s.nextDouble();
+//        System.out.println(a + " " + n + " " + p + " " + q + " " + d);
+//
+//        boolean b = s.nextBoolean();
+//        System.out.println(b);
+//
+//        String str =  s.next();// s.nextLine() // "abc12;7[]";
+//        System.out.println(str);
 
 
 //        char ch = '3';
 //
 //        System.out.println(ch);
+
+
+//        String name = s.nextLine();
+//        String carName = s.next();
+//
+//        System.out.println(name);
+//        System.out.println(carName);
+
+
+//        System.out.println("Enter a character");
+//        String name = s.next();
+//        char nam = name.charAt(0);
+
+//        System.out.println(name);
+
+//        int a , b, c;
+//        a = s.nextInt();
+//        b = s.nextInt();
+//        c = s.nextInt();
+//
+//        System.out.println(nam);
+//        System.out.println(a + " " + b + " " + c);
+
+//        int len = name.length();
+//        char ch = name.charAt(2);
+//
+//        System.out.println(len);
+//        System.out.println(ch);
+
+
+//        int a = 10; // integer
+//        int b = 20; // integer
+//
+//        int c = a + b; // integer
+//
+//        String name = "Afzal";
+//
+//        String ans = name + a; // String + Integer
+//        System.out.println(30.67 + ans);
+
+//        System.out.println(30  + 'a' + (20 + "Afzal") + (100 + 200) + false); //4020Afzal300false
+
+        char ch = 'a' + 5; // a + 5
+        System.out.println(ch);
+
+//        https://leetcode.com/problems/add-binary/
+//        https://leetcode.com/problems/roman-to-integer/
 
     }
 }
