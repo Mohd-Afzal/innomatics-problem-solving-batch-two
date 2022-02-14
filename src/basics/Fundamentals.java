@@ -132,11 +132,45 @@ public class Fundamentals {
 
 //        System.out.println(30  + 'a' + (20 + "Afzal") + (100 + 200) + false); //4020Afzal300false
 
-        char ch = 'a' + 5; // a + 5
-        System.out.println(ch);
+//        char ch = 'a' + 5; // a + 5
+//        System.out.println(ch);
 
 //        https://leetcode.com/problems/add-binary/
 //        https://leetcode.com/problems/roman-to-integer/
+
+        int num1 = s.nextInt();
+        int num2 = s.nextInt();
+        int num3 = s.nextInt();
+
+
+        if (num1 > num2) {
+            // If I am here - what does this mean?
+            if (num1 > num3) {
+                // If I am here - what does this mean?
+                System.out.println(num1 + "is greater than num2 and num3");
+            }
+        }
+
+
+        if (num1 > num2 && num1 > num3) {
+            // both the mentioned conditions must be true
+            System.out.println(num1 + "is greater than num2 and num3");
+        } else if (num2 > num1 && num2 > num3) {
+            // num2 is greatest
+        } else {
+            // num3 is greatest
+        }
+
+
+        char ch = s.next().charAt(0);
+
+        if (ch >= 'A' && ch <= 'Z') {
+            // 1
+        } else if (ch >= 'a' && ch <= 'z') {
+            // 0
+        } else {
+            // -1
+        }
 
     }
 }
