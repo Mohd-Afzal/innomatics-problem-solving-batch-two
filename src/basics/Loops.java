@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Loops {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
 
 //        int counter = 11; // initialization of the counter
@@ -31,5 +31,55 @@ public class Loops {
 
 
 //        System.out.println("Exiting!");
+
+
+
+
+
+        /* ---------------------- Type Conversion in Java ---------------------- */
+
+        // Datatypes -> premitive -> int float double, boolean, short, byte
+
+//        byte b = -128;
+//        short sh = 32767;
+//        int in = sh; // from short to int
+//
+////        System.out.println(sh + " " + in);
+//
+//        int num =  383; // 127 + 129 + 127; // in the range of byte!
+//        byte p = (byte)num;
+//
+////        System.out.println(num + " " + p);
+//
+//        long l = num; // casting from int to long
+//
+//        long ln = 9223372036854775807l;
+//        float f = 6789.6f;
+//
+//        // char -> integers -> 2bytes ---- A => 65
+//
+//        char ch = 65;
+//        int a = 5678;
+//
+//        char anotherChar = (char)a;
+//
+////        System.out.println(ch + " " + anotherChar);
+//
+//        System.out.println((char)345678);
+
+
+        // c = F - 32*5/9
+
+        int s = 0;
+        int e = 100;
+        int w = 20;
+
+        while (s <= e) {
+            int celcius = (int)((s-32) * (5/9.0));
+            System.out.println(s + "\t" + celcius);
+
+            s = s + w;
+        }
+
     }
 }
