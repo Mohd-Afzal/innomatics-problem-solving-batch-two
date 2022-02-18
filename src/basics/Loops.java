@@ -70,14 +70,13 @@ public class Loops {
 
         // c = F - 32*5/9
 
-        int s = 0;
-        int e = 100;
-        int w = 20;
+        int s = sc.nextInt();
+        int e = sc.nextInt();
+        int w = sc.nextInt();
 
         while (s <= e) {
-            int celcius = (int)((s-32) * (5/9.0));
+            int celcius = (int)((s-32) * (5/(double)9));
             System.out.println(s + "\t" + celcius);
-
             s = s + w;
         }
 
