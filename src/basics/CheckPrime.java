@@ -75,8 +75,7 @@ public class CheckPrime {
             if (!indicator) {
                 System.out.println(counter + " is a Prime Number!");
             }
-
-
+            
             counter += 1;
         }
 
