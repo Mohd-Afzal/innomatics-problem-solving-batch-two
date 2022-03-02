@@ -15,7 +15,6 @@ public class FibonacciSeries {
 
         int begin = 3;
         while (begin <= nTerms) {
-
             int nextTerm = firstTerm + secondTerm;
             System.out.print(nextTerm + " ");
 
