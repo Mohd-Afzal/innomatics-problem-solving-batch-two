@@ -2,7 +2,7 @@ package basics;
 
 import java.util.Scanner;
 
-public class LearningArrays {
+public class LearningArraysOne {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -47,7 +47,7 @@ public class LearningArrays {
         for (int i = 0; i < marks.length; i++) {
             System.out.print(marks[i] + " ");
         }
-        
+
     }
 
 }
