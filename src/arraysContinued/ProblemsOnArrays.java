@@ -1,20 +1,18 @@
 package arraysContinued;
 
-import javax.swing.*;
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class ProblemsOnArrays {
 
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
         // Taking input for array
-        int n = s.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
+        int[] arr = new int[s.nextInt()];
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = s.nextInt();
         }
-
 
 
         /*
@@ -44,7 +42,6 @@ public class ProblemsOnArrays {
 //        }
 
 
-
         // Solution - 2
 //        Arrays.sort(arr);
 //
@@ -70,11 +67,6 @@ public class ProblemsOnArrays {
 
 
 
-//          Once you have solved Sort 0 1
-//        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
-
-
-
         /*
             Find Unique
 
@@ -84,25 +76,23 @@ public class ProblemsOnArrays {
         * */
 
         // Solution - 1 (Brute Force Approach)
-
-        boolean found = false;
-
-        for (int i = 0; i < arr.length; i++) {
-            int numberToCheck = arr[i];
-            for (int j = 0; j < arr.length; j++) {
-                if (i != j && arr[j] == numberToCheck) {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                System.out.println(numberToCheck);
-                break;
-            }
-
-
-
+//        for (int i = 0; i < arr.length; i++) {
+//            boolean found = false;
+//            int numberToCheck = arr[i];
+//
+////            for (int j = 0; j < arr.length; j++) {
+////                if (i != j && arr[j] == numberToCheck) {
+////                    found = true;
+////                    break;
+////                }
+////            }
+////
+////            if (!found) {
+////                System.out.println(numberToCheck);
+////                break;
+////            }
+//
+//
 //            // Left Part of the Array with respect to i
 //            for (int k = 0; k < i; k++) {
 //                if (arr[k] == numberToCheck) {
@@ -121,15 +111,28 @@ public class ProblemsOnArrays {
 //                }
 //            }
 //
-//            if (found == false) {
+//            if (!found) {
 //                System.out.println(numberToCheck);
 //                break;
 //            }
+//
+//        }
 
+
+        // Solution - 3 Optimal one using XOR(^)
+//        https://www.maximintegrated.com/en/glossary/definitions.mvp/term/xor-gate/gpk/1202
+
+        // Solving in just one pass
+        int unique = 0;
+        for (int i = 0; i < arr.length; i++) {
+            unique = unique ^ arr[i];
         }
 
+        System.out.println(unique);
 
 
+//        Once you have solved Sort 0 1
+//        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
 
     }
 }
