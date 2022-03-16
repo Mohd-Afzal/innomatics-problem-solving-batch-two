@@ -1,7 +1,6 @@
 package arraysContinued;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class ProblemsOnArrays {
 
@@ -123,15 +122,36 @@ public class ProblemsOnArrays {
 //        https://www.maximintegrated.com/en/glossary/definitions.mvp/term/xor-gate/gpk/1202
 
         // Solving in just one pass
-        int unique = 0;
-        for (int i = 0; i < arr.length; i++) {
-            unique = unique ^ arr[i];
-        }
-
-        System.out.println(unique);
+//        int unique = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            unique = unique ^ arr[i];
+//        }
+//
+//        System.out.println(unique);
 
 
 //        Once you have solved Sort 0 1
+        int nextZeroIndex = 0;
+        int pickerIndex = 0;
+
+        while (pickerIndex < arr.length) {
+            if (arr[pickerIndex] == 0) {
+                int temp = arr[nextZeroIndex];
+                arr[nextZeroIndex] = arr[pickerIndex];
+                arr[pickerIndex] = temp;
+
+                nextZeroIndex += 1;
+                pickerIndex += 1;
+            } else {
+                pickerIndex += 1;
+            }
+        }
+
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
 //        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/ | Dutch National Flag Algorithm
 
     }
