@@ -1,20 +1,23 @@
 package arraysContinued;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class ProblemsOnArrays {
 
-    public static void main(String[] args) {
+    static Scanner s = new Scanner(System.in);
 
-        Scanner s = new Scanner(System.in);
-        // Taking input for array
+    public static int[] getIntArray() {
         int[] arr = new int[s.nextInt()];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = s.nextInt();
         }
 
+        return arr;
+    }
 
-        /*
+
+    /*
             Find Duplicate
 
             You have been given an integer array/list(ARR) of size N which contains
@@ -23,114 +26,143 @@ public class ProblemsOnArrays {
             these, there is a single integer value that is present twice.
 
             You need to find and return that duplicate number present in the array.
-        */
+    */
 
-        // Solution - 1 (fucking slow!) (n * (n + 1) / 2 iterations )
-//        for (int i = 0; i < arr.length; i++) {
-//            boolean hasExitedInnerLoop = false;
-//            for (int j = i + 1; j < arr.length; j++) {
-//                if (arr[i] == arr[j]) {
+    public static int findDuplicateBruteForce(int[] arr) {
+        // Solution - 1 (fucking slow!) (n * (n + 1) / 2 iterations ) - findDuplicateBruteForce
+
+        int ans = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            boolean hasExitedInnerLoop = false;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
 //                    System.out.println(arr[i]);
-//                    hasExitedInnerLoop = true;
-//                    break;
-//                }
-//            }
-//            if (hasExitedInnerLoop) {
-//                break;
-//            }
-//        }
+                    ans = arr[i];
+                    hasExitedInnerLoop = true;
+                    break;
+                }
+            }
+            if (hasExitedInnerLoop) {
+                break;
+            }
+        }
 
+        return ans;
+    }
 
+    public static int findDuplicateOptimalOne(int[] arr) {
         // Solution - 2
-//        Arrays.sort(arr);
-//
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] == arr[i + 1]) {
+        Arrays.sort(arr);
+
+        int ans = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == arr[i + 1]) {
+                ans = arr[i];
 //                System.out.println(arr[i]);
-//                break;
-//            }
-//        }
+                break;
+            }
+        }
 
+        return ans;
+    }
 
+    public static int findDuplicateOptimal(int[] arr) {
         // Solution - 3
 
-//        int arraySum = 0;
-//        for (int i = 0; i < arr.length; i++) {
-//            arraySum += arr[i];
-//        }
-//
-//        // n == arr.length
-//        int sumOfNMinusTwoNaturalNumbers = ((arr.length - 2) * (arr.length - 1)) / 2;
-//        int duplicateNumber = arraySum - sumOfNMinusTwoNaturalNumbers;
+        int arraySum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            arraySum += arr[i];
+        }
+
+        // n == arr.length
+        int sumOfNMinusTwoNaturalNumbers = ((arr.length - 2) * (arr.length - 1)) / 2;
+        int duplicateNumber = arraySum - sumOfNMinusTwoNaturalNumbers;
 //        System.out.println(duplicateNumber);
 
+        return duplicateNumber;
+    }
 
 
-        /*
+    /*
             Find Unique
 
             You have been given an integer array/list(ARR) of size N. Where N is equal to [2M + 1].
             Now, in the given array/list, 'M' numbers are present twice and one number is present only once.
             You need to find and return that number which is unique in the array/list.
-        * */
+    */
 
+    public static int findUniqueBruteForce(int[] arr) {
         // Solution - 1 (Brute Force Approach)
-//        for (int i = 0; i < arr.length; i++) {
-//            boolean found = false;
-//            int numberToCheck = arr[i];
-//
-////            for (int j = 0; j < arr.length; j++) {
-////                if (i != j && arr[j] == numberToCheck) {
-////                    found = true;
-////                    break;
-////                }
-////            }
-////
-////            if (!found) {
-////                System.out.println(numberToCheck);
-////                break;
-////            }
-//
-//
-//            // Left Part of the Array with respect to i
-//            for (int k = 0; k < i; k++) {
-//                if (arr[k] == numberToCheck) {
-//                    found = true;
-//                    break;
-//                }
-//            }
-//
-//            // Right Part of the Array with respect to i
-//            if (found == false) {
-//                for (int j = i + 1; j < arr.length; j++) {
-//                    if (arr[j] == numberToCheck) {
-//                        found = true;
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            if (!found) {
+
+        int ans = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            boolean found = false;
+            int numberToCheck = arr[i];
+
+            for (int j = 0; j < arr.length; j++) {
+                if (i != j && arr[j] == numberToCheck) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
 //                System.out.println(numberToCheck);
-//                break;
-//            }
-//
-//        }
+                ans = numberToCheck;
+                break;
+            }
 
 
+            // Left Part of the Array with respect to i
+            for (int k = 0; k < i; k++) {
+                if (arr[k] == numberToCheck) {
+                    found = true;
+                    break;
+                }
+            }
+
+            // Right Part of the Array with respect to i
+            if (found == false) {
+                for (int j = i + 1; j < arr.length; j++) {
+                    if (arr[j] == numberToCheck) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!found) {
+//                System.out.println(numberToCheck);
+                ans = numberToCheck;
+                break;
+            }
+
+        }
+
+        return ans;
+    }
+
+    public static int findUniqueOptimal(int[] arr) {
         // Solution - 3 Optimal one using XOR(^)
 //        https://www.maximintegrated.com/en/glossary/definitions.mvp/term/xor-gate/gpk/1202
 
         // Solving in just one pass
-//        int unique = 0;
-//        for (int i = 0; i < arr.length; i++) {
-//            unique = unique ^ arr[i];
-//        }
-//
+        int unique = 0;
+        for (int i = 0; i < arr.length; i++) {
+            unique = unique ^ arr[i];
+        }
+
 //        System.out.println(unique);
 
+        return unique;
+    }
 
-//        Once you have solved Sort 0 1
+    // Sort 0 and 1
+    public static void sort01(int[] arr) {
+
         int nextZeroIndex = 0;
         int pickerIndex = 0;
 
@@ -147,10 +179,29 @@ public class ProblemsOnArrays {
             }
         }
 
+    }
 
+    public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+
+        // Taking input for array
+        int[] arr = getIntArray();
+//        int ans = findDuplicateBruteForce(arr);
+//        System.out.println(ans);
+//        System.out.println(findDuplicateBruteForce(arr));
+//        System.out.println(findDuplicateOptimalOne(arr));
+//        System.out.println(findDuplicateOptimal(arr));
+
+        sort01(arr);
+        printArray(arr);
+
 
 //        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/ | Dutch National Flag Algorithm
 
