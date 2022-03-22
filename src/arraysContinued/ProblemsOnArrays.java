@@ -181,6 +181,36 @@ public class ProblemsOnArrays {
 
     }
 
+
+    public static void printIntersectionsBrute(int[] arr1, int[] arr2) {
+//        5
+//        10 2 8 20 3
+//        7
+//        3 25 2 5 20 2 2
+
+        for (int i = 0; i < arr1.length; i++) {
+
+            int toSearch = arr1[i];
+            for (int j = 0; j < arr2.length; j++) {
+                if (arr2[j] == toSearch) {
+                    System.out.println(toSearch);
+                    arr2[j] = Integer.MIN_VALUE; // Marking the element visited in arr2
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+
+    public static void printIntersectionsOptimalOne(int[] arr1, int[] arr2) {
+        // Binary Search
+
+    }
+
+
+
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -192,15 +222,10 @@ public class ProblemsOnArrays {
     public static void main(String[] args) {
 
         // Taking input for array
-        int[] arr = getIntArray();
-//        int ans = findDuplicateBruteForce(arr);
-//        System.out.println(ans);
-//        System.out.println(findDuplicateBruteForce(arr));
-//        System.out.println(findDuplicateOptimalOne(arr));
-//        System.out.println(findDuplicateOptimal(arr));
+        int[] arr1 = getIntArray();
+        int[] arr2 = getIntArray();
+        printIntersectionsBrute(arr1, arr2);
 
-        sort01(arr);
-        printArray(arr);
 
 
 //        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/ | Dutch National Flag Algorithm
