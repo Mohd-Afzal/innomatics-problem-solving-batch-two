@@ -203,12 +203,39 @@ public class ProblemsOnArrays {
 
     }
 
+    public static boolean binarySearch(int[] arr, int x) {
 
+        int firstIndex = 0;
+        int endIndex = arr.length - 1;
+
+        while (firstIndex <= endIndex) {
+            int midIndex = (firstIndex + endIndex) / 2;
+
+            if (arr[midIndex] == x) {
+                return true;
+            } else if (arr[midIndex] > x) {
+                endIndex = midIndex - 1;
+            } else {
+                firstIndex = midIndex + 1;
+            }
+        }
+
+        return false;
+    }
     public static void printIntersectionsOptimalOne(int[] arr1, int[] arr2) {
-        // Binary Search
+        Arrays.sort(arr2);
+        // Can apply Binary Search on Arr2
+
+        // Incomplete - Instructor wants the students to brainstorm on the duplicate case
+        for (int i = 0; i < arr1.length; i++) {
+            int toSearch = arr1[i];
+
+            if (binarySearch(arr2, toSearch)) {
+                System.out.println(toSearch);
+            }
+        }
 
     }
-
 
 
     public static void printArray(int[] arr) {
@@ -218,7 +245,6 @@ public class ProblemsOnArrays {
         System.out.println();
     }
 
-
     public static void main(String[] args) {
 
         // Taking input for array
@@ -226,9 +252,11 @@ public class ProblemsOnArrays {
         int[] arr2 = getIntArray();
         printIntersectionsBrute(arr1, arr2);
 
-
-
+//        Assignment Questions
 //        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/ | Dutch National Flag Algorithm
+//        https://leetcode.com/problems/search-in-rotated-sorted-array/
+//        https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+//        https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
     }
 }

@@ -2,7 +2,7 @@ package arraysContinued;
 
 import java.util.Scanner;
 
-public class SortingAlgorithms {
+public class SearchingAndSortingAlgorithms {
 
     static Scanner s = new Scanner(System.in);
 
@@ -14,6 +14,43 @@ public class SortingAlgorithms {
         }
 
         return arr;
+    }
+
+
+    // Searching Algorithms
+    public static int linearSearch(int[] arr, int x) {
+
+        int index = -1;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+
+    public static int binarySearch(int[] arr, int x) {
+
+        int firstIndex = 0;
+        int endIndex = arr.length - 1;
+
+        while (firstIndex <= endIndex) {
+            int midIndex = (firstIndex + endIndex) / 2;
+
+            if (arr[midIndex] == x) {
+                return midIndex;
+            } else if (arr[midIndex] > x) {
+                endIndex = midIndex - 1;
+            } else {
+                firstIndex = midIndex + 1;
+            }
+        }
+
+        return -1;
     }
 
     // Bubble Sort Algorithm for Sorting Array
@@ -66,8 +103,10 @@ public class SortingAlgorithms {
     }
 
     public static void main(String[] args) {
-
         // Main Area
+
+        int[] arr = getIntArray();
+        System.out.println(binarySearch(arr, s.nextInt()));
 
     }
 
