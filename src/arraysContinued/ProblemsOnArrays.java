@@ -16,7 +16,6 @@ public class ProblemsOnArrays {
         return arr;
     }
 
-
     /*
             Find Duplicate
 
@@ -181,7 +180,6 @@ public class ProblemsOnArrays {
 
     }
 
-
     public static void printIntersectionsBrute(int[] arr1, int[] arr2) {
 //        5
 //        10 2 8 20 3
@@ -237,6 +235,31 @@ public class ProblemsOnArrays {
 
     }
 
+    public static void printIntersectionsOptimalTwo(int[] arr1, int[] arr2) {
+        // Prerequisite
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+//        6
+//        5 10 20 20 20 30
+//        8
+//        2 3 4 5 20 20 40 50
+
+        int i = 0;
+        int j = 0;
+
+        while(i < arr1.length && j < arr2.length) {
+            if (arr1[i] == arr2[j]) {
+                System.out.println(arr1[i]);
+                i++; j++;
+            } else if (arr1[i] < arr2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+
+    }
 
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -250,7 +273,8 @@ public class ProblemsOnArrays {
         // Taking input for array
         int[] arr1 = getIntArray();
         int[] arr2 = getIntArray();
-        printIntersectionsBrute(arr1, arr2);
+
+        printIntersectionsOptimalTwo(arr1, arr2);
 
 //        Assignment Questions
 //        https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/ | Dutch National Flag Algorithm
