@@ -17,7 +17,7 @@ public class LifeCycleOfAVariable {
         int j = 20;
 
         while (true) {
-
+            int r= 50;
         }
 
 //        i = 100

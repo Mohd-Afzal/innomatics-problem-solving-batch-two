@@ -18,6 +18,7 @@ public class SearchingAndSortingAlgorithms {
 
 
     // Searching Algorithms
+    // O(n)
     public static int linearSearch(int[] arr, int x) {
 
         int index = -1;
@@ -32,7 +33,7 @@ public class SearchingAndSortingAlgorithms {
         return index;
     }
 
-
+    // log base 2 n
     public static int binarySearch(int[] arr, int x) {
 
         int firstIndex = 0;
@@ -54,6 +55,7 @@ public class SearchingAndSortingAlgorithms {
     }
 
     // Bubble Sort Algorithm for Sorting Array
+    // O(n^2)
     public static void bubbleSort(int[] arr) {
         for (int j = 0; j < arr.length; j++) {
             for (int i = 0; i < arr.length - 1; i++) {
@@ -67,6 +69,7 @@ public class SearchingAndSortingAlgorithms {
     }
 
     // Insertion Sort Algorithm for Sorting Array
+    // O(n^2)
     public static void insertionSort(int[] arr) {
         int nextSmallestElementIndex = 0;
         while (nextSmallestElementIndex < arr.length) {

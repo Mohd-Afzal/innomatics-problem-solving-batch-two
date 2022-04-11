@@ -27,6 +27,7 @@ public class ProblemsOnArrays {
             You need to find and return that duplicate number present in the array.
     */
 
+    // O(n^2)
     public static int findDuplicateBruteForce(int[] arr) {
         // Solution - 1 (fucking slow!) (n * (n + 1) / 2 iterations ) - findDuplicateBruteForce
 
@@ -50,9 +51,10 @@ public class ProblemsOnArrays {
         return ans;
     }
 
+    // O(nlogn)
     public static int findDuplicateOptimalOne(int[] arr) {
         // Solution - 2
-        Arrays.sort(arr);
+        Arrays.sort(arr); // nlogn
 
         int ans = Integer.MIN_VALUE;
 
@@ -67,20 +69,21 @@ public class ProblemsOnArrays {
         return ans;
     }
 
+    // O(n)
     public static int findDuplicateOptimal(int[] arr) {
         // Solution - 3
 
-        int arraySum = 0;
+        int arraySum = 0; // k
         for (int i = 0; i < arr.length; i++) {
-            arraySum += arr[i];
+            arraySum += arr[i]; // nk
         }
 
         // n == arr.length
-        int sumOfNMinusTwoNaturalNumbers = ((arr.length - 2) * (arr.length - 1)) / 2;
-        int duplicateNumber = arraySum - sumOfNMinusTwoNaturalNumbers;
+        int sumOfNMinusTwoNaturalNumbers = ((arr.length - 2) * (arr.length - 1)) / 2; // k
+        int duplicateNumber = arraySum - sumOfNMinusTwoNaturalNumbers; // k
 //        System.out.println(duplicateNumber);
 
-        return duplicateNumber;
+        return duplicateNumber; // k
     }
 
 
@@ -92,6 +95,7 @@ public class ProblemsOnArrays {
             You need to find and return that number which is unique in the array/list.
     */
 
+    // O(n^2)
     public static int findUniqueBruteForce(int[] arr) {
         // Solution - 1 (Brute Force Approach)
 
@@ -144,6 +148,7 @@ public class ProblemsOnArrays {
         return ans;
     }
 
+    // O(n)
     public static int findUniqueOptimal(int[] arr) {
         // Solution - 3 Optimal one using XOR(^)
 //        https://www.maximintegrated.com/en/glossary/definitions.mvp/term/xor-gate/gpk/1202
@@ -160,6 +165,7 @@ public class ProblemsOnArrays {
     }
 
     // Sort 0 and 1
+    // O(n)
     public static void sort01(int[] arr) {
 
         int nextZeroIndex = 0;
@@ -180,6 +186,7 @@ public class ProblemsOnArrays {
 
     }
 
+    // O(n^2)
     public static void printIntersectionsBrute(int[] arr1, int[] arr2) {
 //        5
 //        10 2 8 20 3
@@ -201,6 +208,7 @@ public class ProblemsOnArrays {
 
     }
 
+    // O(logn)
     public static boolean binarySearch(int[] arr, int x) {
 
         int firstIndex = 0;
@@ -220,8 +228,9 @@ public class ProblemsOnArrays {
 
         return false;
     }
+    //O(nlogn)
     public static void printIntersectionsOptimalOne(int[] arr1, int[] arr2) {
-        Arrays.sort(arr2);
+        Arrays.sort(arr2); // nlogn
         // Can apply Binary Search on Arr2
 
         // Incomplete - Instructor wants the students to brainstorm on the duplicate case
@@ -235,6 +244,7 @@ public class ProblemsOnArrays {
 
     }
 
+    //O(nlogn)
     public static void printIntersectionsOptimalTwo(int[] arr1, int[] arr2) {
         // Prerequisite
         Arrays.sort(arr1);
