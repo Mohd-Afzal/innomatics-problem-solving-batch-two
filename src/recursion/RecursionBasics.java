@@ -21,10 +21,40 @@ public class RecursionBasics {
         return myAns;
     }
 
+    public static int sumOfN(int n) {
+        // Base Condition
+        if (n == 1) {
+            return 1;
+        }
+
+        // Induction Hypothesis
+        int smallAns = sumOfN(n - 1);
+
+        // Induction Step
+        int myAns = n + smallAns;
+        return myAns;
+    }
+
+    public static void print(int n) {
+        // Base case
+        if (n == 1) {
+            System.out.print(1 + " ");
+            return;
+        }
+
+        // Induction Hypothesis
+        print(n - 1);
+
+        // Induction Step
+        System.out.print(n + " ");
+    }
+
+
     public static void main(String[] args) {
 
-        int ans = fact(4);
-        System.out.println(ans);
+//        int ans = sumOfN(10);
+//        System.out.println(ans);
 
+        print(10);
     }
 }
