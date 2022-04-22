@@ -97,6 +97,40 @@ public class SearchingAndSortingAlgorithms {
         }
     }
 
+    public static int[] mergeTwoSortedArrays(int[] arr1, int[] arr2) {
+        int[] arr3 = new int[arr1.length + arr2.length];
+        int k = 0; // traversing over arr3
+
+        int i = 0; // traversing over arr1
+        int j = 0; // traversing over arr2
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                arr3[k] = arr1[i];
+                i++; k++;
+            } else if (arr2[j] < arr1[i]) {
+                arr3[k] = arr2[j];
+                j++; k++;
+            } else {
+                arr3[k] = arr1[i];
+                k++; i++;
+                arr3[k] = arr2[j];
+                k++; j++;
+            }
+        }
+
+        while (i < arr1.length) {
+            arr3[k] = arr1[i];
+            i++; k++;
+        }
+
+        while (j < arr2.length) {
+            arr3[k] = arr2[j];
+            j++; k++;
+        }
+
+        return arr3;
+    }
+
     // Printing
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -108,8 +142,16 @@ public class SearchingAndSortingAlgorithms {
     public static void main(String[] args) {
         // Main Area
 
-        int[] arr = getIntArray();
-        System.out.println(binarySearch(arr, s.nextInt()));
+        int[] arr1 = getIntArray();
+        int[] arr2 = getIntArray();
+
+        printArray(arr1);
+        printArray(arr2);
+
+//        System.out.println(binarySearch(arr, s.nextInt()));
+
+        int[] arr3 = mergeTwoSortedArrays(arr1, arr2);
+        printArray(arr3);
 
     }
 

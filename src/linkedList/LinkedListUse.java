@@ -43,6 +43,63 @@ public class LinkedListUse {
         return head;
     }
 
+    public static int getLength(LinkedListNode<Integer> head) {
+        int length = 0;
+
+        while (head != null) {
+            length += 1;
+            head = head.next;
+        }
+
+        return length;
+    }
+
+    public static LinkedListNode<Integer> getIthNode(LinkedListNode<Integer> head, int i) {
+        int n = getLength(head);
+        int count = 0;
+        // Write your iterative code
+        // Write a recursive function
+
+        return null;
+    }
+
+    public static void printReverse(LinkedListNode<Integer> head) {
+
+        if (head == null) {
+           return;
+        }
+
+        printReverse(head.next);
+        System.out.print(head.data + " ");
+    }
+
+    public static LinkedListNode<Integer> deleteIthNode(LinkedListNode<Integer> head, int i) {
+
+        if (i == 0) {
+            return head.next;
+        }
+
+//        LinkedListNode<Integer> temp = head;
+//        int startIndex = 1; // reducing by 1
+//        while (startIndex < i) {
+//            temp = temp.next;
+//            startIndex += 1;
+//        }
+//        temp.next = temp.next.next;
+
+        LinkedListNode<Integer> prev = null;
+        LinkedListNode<Integer> curr = head;
+
+        while (i != 0) {
+            prev = curr;
+            curr = curr.next;
+            i--;
+        }
+
+        prev.next = curr.next;
+        return head;
+    }
+
     public static void main(String[] args) {
 
 //        LinkedListNode<Integer> nodeOne = new LinkedListNode<>(10);
@@ -66,6 +123,12 @@ public class LinkedListUse {
 //        }
 //        System.out.println("null");
 
+//        printList(head);
+//        System.out.println(getLength(head));
+//        printReverse(head);
+
+        // Delete the node from ith position
+        head = deleteIthNode(head, s.nextInt());
         printList(head);
 
     }
