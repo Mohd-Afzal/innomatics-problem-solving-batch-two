@@ -131,6 +131,75 @@ public class SearchingAndSortingAlgorithms {
         return arr3;
     }
 
+    public static void mergeSortedArraysForMergeSort(int[] firstHalf, int[] secondHalf, int[] arr) {
+
+        int i = 0; // firstHallf
+        int j = 0; // secondHalf
+        int k = 0; // arr
+
+        while (i < firstHalf.length && j < secondHalf.length) {
+            if (firstHalf[i] < secondHalf[j]) {
+                arr[k] = firstHalf[i];
+                i++; k++;
+            } else if (secondHalf[j] < firstHalf[i]) {
+                arr[k] = secondHalf[j];
+                j++; k++;
+            } else {
+                arr[k] = firstHalf[i];
+                k++; i++;
+                arr[k] = secondHalf[j];
+                k++; j++;
+            }
+        }
+
+        while (i < firstHalf.length) {
+            arr[k] = firstHalf[i];
+            i++; k++;
+        }
+
+        while (j < secondHalf.length) {
+            arr[k] = secondHalf[j];
+            j++; k++;
+        }
+
+    }
+
+    public static void mergeSort(int[] arr) {
+        // Base case
+        if (arr.length == 0 || arr.length == 1) {
+            return;
+        }
+
+//        int n = arr.length;
+        int[] firstHalf = new int[arr.length / 2];
+        int[] secondHalf = new int[arr.length - firstHalf.length];
+
+        // Copy the values to firstHalf - unsorted
+        int k = 0;
+        for (int i = 0; i < firstHalf.length; i++) {
+            firstHalf[i] = arr[k];
+            k++;
+        }
+
+        // Copying the secondHalf - unsorted
+        for (int i = 0; i < secondHalf.length; i++) {
+            secondHalf[i] = arr[k];
+            k++;
+        }
+
+        // Induction Hypothesis
+        mergeSort(firstHalf);
+        mergeSort(secondHalf);
+
+        // Induction Step
+        mergeSortedArraysForMergeSort(firstHalf, secondHalf, arr); // n
+
+    }
+
+    public static void quickSort(int[] arr) {
+        // Assignment
+    }
+
     // Printing
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -142,16 +211,21 @@ public class SearchingAndSortingAlgorithms {
     public static void main(String[] args) {
         // Main Area
 
-        int[] arr1 = getIntArray();
-        int[] arr2 = getIntArray();
+        int[] arr = getIntArray();
+//        int[] arr2 = getIntArray();
+//
+//        printArray(arr1);
+//        printArray(arr2);
+//
+////        System.out.println(binarySearch(arr, s.nextInt()));
+//
+//        int[] arr3 = mergeTwoSortedArrays(arr1, arr2);
+//        printArray(arr3);
 
-        printArray(arr1);
-        printArray(arr2);
 
-//        System.out.println(binarySearch(arr, s.nextInt()));
+        mergeSort(arr);
+        printArray(arr);
 
-        int[] arr3 = mergeTwoSortedArrays(arr1, arr2);
-        printArray(arr3);
 
     }
 
